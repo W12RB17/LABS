@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  node_nginx:
+    build: 
+      context: ./docker_node
+    ports: 
+      - 3000:3000
+
+  nginx_service:
+    depends_on:
+      - node_nginx
+    build:
+      context: ./docker_nginx
+    ports: 
+      - 80:80
